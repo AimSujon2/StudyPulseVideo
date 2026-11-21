@@ -7,10 +7,10 @@
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     body {
-      font-family: 'Hind Siliguri', 'Inter', system-ui, -apple-system, sans-serif;
+      font-family: 'Tiro Bangla', 'Inter', system-ui, -apple-system, sans-serif;
       background-color: #f1f5f9;
       color: #0f172a;
     }
@@ -21,7 +21,7 @@
       max-width: 100%;
     }
     textarea {
-      font-family: 'Hind Siliguri', system-ui, sans-serif;
+      font-family: 'Tiro Bangla', 'Inter', system-ui, sans-serif;
     }
   </style>
 </head>
@@ -431,7 +431,7 @@
 
     // Pre-wrap text into lines with grapheme counts so words never jump while typing
     function layoutParagraphs(text, maxWidth, fontSize) {
-      ctx.font = `500 ${fontSize}px "Hind Siliguri", "Noto Sans Bengali", sans-serif`;
+      ctx.font = `400 ${fontSize}px "Tiro Bangla", "Noto Sans Bengali", serif`;
       const paragraphs = (text || '').split('\n');
       const lines = [];
       let totalGraphemes = 0;
@@ -600,13 +600,13 @@
       ctx.fillStyle = '#0f172a';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      ctx.font = '600 34px "Hind Siliguri", "Noto Sans Bengali", sans-serif';
+      ctx.font = '400 34px "Tiro Bangla", "Noto Sans Bengali", serif';
       ctx.fillText(footerText, W / 2, 1835);
       ctx.restore();
     }
 
     function drawTypedBlock(layout, revealedCount, startX, startY, lineHeight, fontSize) {
-      ctx.font = `500 ${fontSize}px "Hind Siliguri", "Noto Sans Bengali", sans-serif`;
+      ctx.font = `400 ${fontSize}px "Tiro Bangla", "Noto Sans Bengali", serif`;
       ctx.fillStyle = '#0f172a';
       ctx.textAlign = 'left';
       ctx.textBaseline = 'top';
