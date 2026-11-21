@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="bn">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="bn"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>StudyPulse — অটোমেটিক শর্ট ভিডিও মেকার</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Tiro Bangla', 'Inter', system-ui, -apple-system, sans-serif;
@@ -20,11 +19,19 @@
       width: auto;
       max-width: 100%;
     }
-    textarea {
-      font-family: 'Tiro Bangla', 'Inter', system-ui, sans-serif;
+    .rich-editor {
+      font-family: 'Tiro Bangla', 'Inter', system-ui, -apple-system, sans-serif;
+      white-space: pre-wrap;
+      word-break: break-word;
+      overflow-y: auto;
+    }
+    .rich-editor:empty::before {
+      content: attr(data-placeholder);
+      color: #94a3b8;
+      pointer-events: none;
     }
   </style>
-</head>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.top-0{top:0px}.z-20{z-index:20}.mx-1{margin-left:0.25rem;margin-right:0.25rem}.mx-auto{margin-left:auto;margin-right:auto}.mb-1\.5{margin-bottom:0.375rem}.ml-1{margin-left:0.25rem}.mr-0\.5{margin-right:0.125rem}.mt-2{margin-top:0.5rem}.mb-1{margin-bottom:0.25rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-4{height:1rem}.h-5{height:1.25rem}.h-9{height:2.25rem}.h-12{height:3rem}.h-2{height:0.5rem}.h-full{height:100%}.min-h-\[126px\]{min-height:126px}.min-h-\[68px\]{min-height:68px}.min-h-screen{min-height:100vh}.min-h-\[88px\]{min-height:88px}.w-4{width:1rem}.w-5{width:1.25rem}.w-9{width:2.25rem}.w-full{width:100%}.w-px{width:1px}.w-12{width:3rem}.w-48{width:12rem}.min-w-\[110px\]{min-width:110px}.min-w-\[160px\]{min-width:160px}.max-w-7xl{max-width:80rem}.flex-1{flex:1 1 0%}@keyframes spin{to{transform:rotate(360deg)}}.animate-spin{animation:spin 1s linear infinite}.cursor-pointer{cursor:pointer}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-6{gap:1.5rem}.gap-4{gap:1rem}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-0{border-width:0px}.border-4{border-width:4px}.border-b{border-bottom-width:1px}.border-emerald-200{--tw-border-opacity:1;border-color:rgb(167 243 208 / var(--tw-border-opacity, 1))}.border-red-200{--tw-border-opacity:1;border-color:rgb(254 202 202 / var(--tw-border-opacity, 1))}.border-sky-200{--tw-border-opacity:1;border-color:rgb(186 230 253 / var(--tw-border-opacity, 1))}.border-slate-100{--tw-border-opacity:1;border-color:rgb(241 245 249 / var(--tw-border-opacity, 1))}.border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240 / var(--tw-border-opacity, 1))}.border-slate-300{--tw-border-opacity:1;border-color:rgb(203 213 225 / var(--tw-border-opacity, 1))}.border-violet-200{--tw-border-opacity:1;border-color:rgb(221 214 254 / var(--tw-border-opacity, 1))}.border-sky-400{--tw-border-opacity:1;border-color:rgb(56 189 248 / var(--tw-border-opacity, 1))}.border-t-transparent{border-top-color:transparent}.bg-emerald-100{--tw-bg-opacity:1;background-color:rgb(209 250 229 / var(--tw-bg-opacity, 1))}.bg-emerald-600{--tw-bg-opacity:1;background-color:rgb(5 150 105 / var(--tw-bg-opacity, 1))}.bg-red-600{--tw-bg-opacity:1;background-color:rgb(220 38 38 / var(--tw-bg-opacity, 1))}.bg-rose-100{--tw-bg-opacity:1;background-color:rgb(255 228 230 / var(--tw-bg-opacity, 1))}.bg-rose-50{--tw-bg-opacity:1;background-color:rgb(255 241 242 / var(--tw-bg-opacity, 1))}.bg-sky-100{--tw-bg-opacity:1;background-color:rgb(224 242 254 / var(--tw-bg-opacity, 1))}.bg-sky-600{--tw-bg-opacity:1;background-color:rgb(2 132 199 / var(--tw-bg-opacity, 1))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.bg-slate-300{--tw-bg-opacity:1;background-color:rgb(203 213 225 / var(--tw-bg-opacity, 1))}.bg-slate-50{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.bg-transparent{background-color:transparent}.bg-violet-600{--tw-bg-opacity:1;background-color:rgb(124 58 237 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-sky-400{--tw-bg-opacity:1;background-color:rgb(56 189 248 / var(--tw-bg-opacity, 1))}.bg-slate-700{--tw-bg-opacity:1;background-color:rgb(51 65 85 / var(--tw-bg-opacity, 1))}.bg-slate-900\/70{background-color:rgb(15 23 42 / 0.7)}.bg-white\/15{background-color:rgb(255 255 255 / 0.15)}.object-contain{object-fit:contain}.p-0{padding:0px}.p-4{padding:1rem}.p-6{padding:1.5rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pb-2\.5{padding-bottom:0.625rem}.pb-2{padding-bottom:0.5rem}.pt-1{padding-top:0.25rem}.text-center{text-align:center}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.text-\[11px\]{font-size:11px}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xs{font-size:0.75rem;line-height:1rem}.text-base{font-size:1rem;line-height:1.5rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-normal{font-weight:400}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-tight{line-height:1.25}.tracking-wide{letter-spacing:0.025em}.text-emerald-700{--tw-text-opacity:1;color:rgb(4 120 87 / var(--tw-text-opacity, 1))}.text-rose-600{--tw-text-opacity:1;color:rgb(225 29 72 / var(--tw-text-opacity, 1))}.text-rose-700{--tw-text-opacity:1;color:rgb(190 18 60 / var(--tw-text-opacity, 1))}.text-sky-700{--tw-text-opacity:1;color:rgb(3 105 161 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity, 1))}.text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59 / var(--tw-text-opacity, 1))}.text-slate-900{--tw-text-opacity:1;color:rgb(15 23 42 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-sky-200{--tw-text-opacity:1;color:rgb(186 230 253 / var(--tw-text-opacity, 1))}.text-sky-600{--tw-text-opacity:1;color:rgb(2 132 199 / var(--tw-text-opacity, 1))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.accent-sky-600{accent-color:#0284c7}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-150{transition-duration:150ms}.focus-within\:border-emerald-500:focus-within{--tw-border-opacity:1;border-color:rgb(16 185 129 / var(--tw-border-opacity, 1))}.focus-within\:border-sky-500:focus-within{--tw-border-opacity:1;border-color:rgb(14 165 233 / var(--tw-border-opacity, 1))}.focus-within\:ring-2:focus-within{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus-within\:ring-emerald-500:focus-within{--tw-ring-opacity:1;--tw-ring-color:rgb(16 185 129 / var(--tw-ring-opacity, 1))}.focus-within\:ring-sky-500:focus-within{--tw-ring-opacity:1;--tw-ring-color:rgb(14 165 233 / var(--tw-ring-opacity, 1))}.hover\:scale-110:hover{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-sky-300:hover{--tw-border-opacity:1;border-color:rgb(125 211 252 / var(--tw-border-opacity, 1))}.hover\:border-emerald-300:hover{--tw-border-opacity:1;border-color:rgb(110 231 183 / var(--tw-border-opacity, 1))}.hover\:bg-rose-100:hover{--tw-bg-opacity:1;background-color:rgb(255 228 230 / var(--tw-bg-opacity, 1))}.hover\:bg-rose-200:hover{--tw-bg-opacity:1;background-color:rgb(254 205 211 / var(--tw-bg-opacity, 1))}.hover\:bg-sky-200:hover{--tw-bg-opacity:1;background-color:rgb(186 230 253 / var(--tw-bg-opacity, 1))}.hover\:bg-sky-50:hover{--tw-bg-opacity:1;background-color:rgb(240 249 255 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-200:hover{--tw-bg-opacity:1;background-color:rgb(226 232 240 / var(--tw-bg-opacity, 1))}.hover\:bg-emerald-50:hover{--tw-bg-opacity:1;background-color:rgb(236 253 245 / var(--tw-bg-opacity, 1))}.hover\:bg-sky-700:hover{--tw-bg-opacity:1;background-color:rgb(3 105 161 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-800:hover{--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}.hover\:bg-white\/25:hover{background-color:rgb(255 255 255 / 0.25)}.hover\:text-sky-700:hover{--tw-text-opacity:1;color:rgb(3 105 161 / var(--tw-text-opacity, 1))}.hover\:text-emerald-700:hover{--tw-text-opacity:1;color:rgb(4 120 87 / var(--tw-text-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-sky-500:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(14 165 233 / var(--tw-ring-opacity, 1))}@media (min-width: 640px){.sm\:w-auto{width:auto}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:p-5{padding:1.25rem}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:text-base{font-size:1rem;line-height:1.5rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}.sm\:text-xl{font-size:1.25rem;line-height:1.75rem}}@media (min-width: 1024px){.lg\:sticky{position:sticky}.lg\:top-20{top:5rem}.lg\:col-span-7{grid-column:span 7 / span 7}.lg\:col-span-5{grid-column:span 5 / span 5}.lg\:grid-cols-12{grid-template-columns:repeat(12, minmax(0, 1fr))}}</style></head>
 <body class="min-h-screen bg-slate-100 text-slate-900">
   <!-- Top Bar -->
   <header class="bg-white border-b border-slate-200 sticky top-0 z-20">
@@ -32,7 +39,7 @@
       <div class="flex items-center gap-3">
         <div class="w-9 h-9 rounded-xl bg-sky-600 text-white flex items-center justify-center shadow-sm">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
           </svg>
         </div>
         <div>
@@ -63,7 +70,7 @@
             <span class="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-sky-100 text-sky-700">স্লাইড ১</span>
             <h2 class="text-sm sm:text-base font-bold text-slate-800">প্রথম কার্ড (প্রশ্ন ও অপশন)</h2>
           </div>
-          <span id="page1DurationLabel" class="text-xs font-medium text-slate-400">~১২ সেকেন্ড</span>
+          <span id="page1DurationLabel" class="text-xs font-medium text-slate-400">~6 সেকেন্ড</span>
         </div>
 
         <!-- Text Box 1 -->
@@ -71,14 +78,32 @@
           <label for="box1" class="block text-sm font-semibold text-slate-700 mb-1.5">
             ১. প্রথম টেক্সট বক্স <span class="text-xs font-normal text-slate-500">(শুরুর আকর্ষণীয় লাইন / হুক)</span>
           </label>
-          <textarea id="box1" rows="2" class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition" placeholder="যেমন: মূলদ সংখ্যার এই প্রশ্নে ৮০% পরীক্ষার্থী ভুল করে!"></textarea>
+          <div class="rounded-xl border border-slate-300 focus-within:ring-2 focus-within:ring-sky-500 focus-within:border-sky-500 transition overflow-hidden bg-white">
+            <div class="flex flex-wrap items-center gap-1 px-2.5 py-1.5 bg-slate-50 border-b border-slate-200" data-fmt-bar="box1">
+              <button type="button" data-fmt-cmd="bold" data-fmt-box="box1" class="px-2 py-1 text-xs font-bold rounded hover:bg-slate-200 text-slate-700 cursor-pointer transition" title="বোল্ড (Bold)">B</button>
+              <button type="button" data-fmt-cmd="italic" data-fmt-box="box1" class="px-2 py-1 text-xs italic font-semibold rounded hover:bg-slate-200 text-slate-700 cursor-pointer transition" title="ইটালিক (Italic)">I</button>
+              <button type="button" data-fmt-cmd="underline" data-fmt-box="box1" class="px-2 py-1 text-xs underline font-semibold rounded hover:bg-slate-200 text-slate-700 cursor-pointer transition" title="আন্ডারলাইন (Underline)">U</button>
+              <button type="button" data-fmt-cmd="normal" data-fmt-box="box1" class="px-2 py-1 text-xs font-medium rounded hover:bg-slate-200 text-slate-700 border border-slate-200 bg-white cursor-pointer transition" title="নরমাল (সব ফরম্যাট মুছুন)">নরমাল</button>
+              <span class="h-4 w-px bg-slate-300 mx-1"></span>
+              <span class="text-[11px] text-slate-500 mr-0.5">কালার:</span>
+              <button type="button" data-fmt-color="#0f172a" data-fmt-box="box1" class="w-4 h-4 rounded-full bg-slate-900 border border-slate-300 cursor-pointer hover:scale-110 transition" title="কালো"></button>
+              <button type="button" data-fmt-color="#dc2626" data-fmt-box="box1" class="w-4 h-4 rounded-full bg-red-600 border border-red-200 cursor-pointer hover:scale-110 transition" title="লাল"></button>
+              <button type="button" data-fmt-color="#0284c7" data-fmt-box="box1" class="w-4 h-4 rounded-full bg-sky-600 border border-sky-200 cursor-pointer hover:scale-110 transition" title="নীল"></button>
+              <button type="button" data-fmt-color="#059669" data-fmt-box="box1" class="w-4 h-4 rounded-full bg-emerald-600 border border-emerald-200 cursor-pointer hover:scale-110 transition" title="সবুজ"></button>
+              <button type="button" data-fmt-color="#7c3aed" data-fmt-box="box1" class="w-4 h-4 rounded-full bg-violet-600 border border-violet-200 cursor-pointer hover:scale-110 transition" title="বেগুনি"></button>
+              <label class="inline-flex items-center gap-1 ml-1 text-[11px] font-medium text-slate-600 cursor-pointer" title="কাস্টম কালার বাছুন">
+                <input type="color" value="#dc2626" data-fmt-picker="box1" class="w-5 h-5 p-0 border-0 bg-transparent cursor-pointer">
+              </label>
+            </div>
+            <div id="box1" contenteditable="true" data-placeholder="যেমন: মূলদ সংখ্যার এই প্রশ্নে ৮০% পরীক্ষার্থী ভুল করে!" class="rich-editor w-full px-3.5 py-2.5 text-sm sm:text-base focus:outline-none min-h-[68px]">মূলদ সংখ্যার এই প্রশ্নে ৮০% <font color="#dc2626"><b>পরীক্ষার্থী ভুল করে!</b></font></div>
+          </div>
           <div class="mt-2 flex flex-wrap items-center gap-2 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2">
             <button type="button" data-mic-box="box1" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-white border border-slate-300 text-slate-700 hover:bg-sky-50 hover:border-sky-300 hover:text-sky-700 transition cursor-pointer">
               <span>🎙</span><span data-mic-label="box1">ভয়েস রেকর্ড</span>
             </button>
             <label class="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-white border border-slate-300 text-slate-700 hover:bg-sky-50 hover:border-sky-300 hover:text-sky-700 transition cursor-pointer">
               <span>📁</span><span>অডিও আপলোড</span>
-              <input type="file" accept="audio/*" data-audio-upload="box1" class="hidden" />
+              <input type="file" accept="audio/*" data-audio-upload="box1" class="hidden">
             </label>
             <span data-audio-info="box1" class="text-xs text-slate-500 flex-1 truncate">কোনো ভয়েস যুক্ত নেই</span>
             <button type="button" data-audio-play="box1" class="hidden px-2 py-1 text-xs font-semibold rounded-md bg-sky-100 text-sky-700 hover:bg-sky-200 transition cursor-pointer">▶ শুনুন</button>
@@ -91,14 +116,32 @@
           <label for="box2" class="block text-sm font-semibold text-slate-700 mb-1.5">
             ২. দ্বিতীয় টেক্সট বক্স <span class="text-xs font-normal text-slate-500">(মূল প্রশ্ন ও ক, খ, গ, ঘ অপশন)</span>
           </label>
-          <textarea id="box2" rows="5" class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition" placeholder="প্রশ্ন ও অপশনগুলো লিখুন..."></textarea>
+          <div class="rounded-xl border border-slate-300 focus-within:ring-2 focus-within:ring-sky-500 focus-within:border-sky-500 transition overflow-hidden bg-white">
+            <div class="flex flex-wrap items-center gap-1 px-2.5 py-1.5 bg-slate-50 border-b border-slate-200" data-fmt-bar="box2">
+              <button type="button" data-fmt-cmd="bold" data-fmt-box="box2" class="px-2 py-1 text-xs font-bold rounded hover:bg-slate-200 text-slate-700 cursor-pointer transition" title="বোল্ড (Bold)">B</button>
+              <button type="button" data-fmt-cmd="italic" data-fmt-box="box2" class="px-2 py-1 text-xs italic font-semibold rounded hover:bg-slate-200 text-slate-700 cursor-pointer transition" title="ইটালিক (Italic)">I</button>
+              <button type="button" data-fmt-cmd="underline" data-fmt-box="box2" class="px-2 py-1 text-xs underline font-semibold rounded hover:bg-slate-200 text-slate-700 cursor-pointer transition" title="আন্ডারলাইন (Underline)">U</button>
+              <button type="button" data-fmt-cmd="normal" data-fmt-box="box2" class="px-2 py-1 text-xs font-medium rounded hover:bg-slate-200 text-slate-700 border border-slate-200 bg-white cursor-pointer transition" title="নরমাল (সব ফরম্যাট মুছুন)">নরমাল</button>
+              <span class="h-4 w-px bg-slate-300 mx-1"></span>
+              <span class="text-[11px] text-slate-500 mr-0.5">কালার:</span>
+              <button type="button" data-fmt-color="#0f172a" data-fmt-box="box2" class="w-4 h-4 rounded-full bg-slate-900 border border-slate-300 cursor-pointer hover:scale-110 transition" title="কালো"></button>
+              <button type="button" data-fmt-color="#dc2626" data-fmt-box="box2" class="w-4 h-4 rounded-full bg-red-600 border border-red-200 cursor-pointer hover:scale-110 transition" title="লাল"></button>
+              <button type="button" data-fmt-color="#0284c7" data-fmt-box="box2" class="w-4 h-4 rounded-full bg-sky-600 border border-sky-200 cursor-pointer hover:scale-110 transition" title="নীল"></button>
+              <button type="button" data-fmt-color="#059669" data-fmt-box="box2" class="w-4 h-4 rounded-full bg-emerald-600 border border-emerald-200 cursor-pointer hover:scale-110 transition" title="সবুজ"></button>
+              <button type="button" data-fmt-color="#7c3aed" data-fmt-box="box2" class="w-4 h-4 rounded-full bg-violet-600 border border-violet-200 cursor-pointer hover:scale-110 transition" title="বেগুনি"></button>
+              <label class="inline-flex items-center gap-1 ml-1 text-[11px] font-medium text-slate-600 cursor-pointer" title="কাস্টম কালার বাছুন">
+                <input type="color" value="#dc2626" data-fmt-picker="box2" class="w-5 h-5 p-0 border-0 bg-transparent cursor-pointer">
+              </label>
+            </div>
+            <div id="box2" contenteditable="true" data-placeholder="প্রশ্ন ও অপশনগুলো লিখুন..." class="rich-editor w-full px-3.5 py-2.5 text-sm sm:text-base focus:outline-none min-h-[126px]">প্রশ্ন: নিচের কোনটি মূলদ সংখ্যা?<br>(ক) √৩<br>(খ) π<br>(গ) √(৪/৯)<br>(ঘ) √৫</div>
+          </div>
           <div class="mt-2 flex flex-wrap items-center gap-2 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2">
             <button type="button" data-mic-box="box2" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-white border border-slate-300 text-slate-700 hover:bg-sky-50 hover:border-sky-300 hover:text-sky-700 transition cursor-pointer">
               <span>🎙</span><span data-mic-label="box2">ভয়েস রেকর্ড</span>
             </button>
             <label class="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-white border border-slate-300 text-slate-700 hover:bg-sky-50 hover:border-sky-300 hover:text-sky-700 transition cursor-pointer">
               <span>📁</span><span>অডিও আপলোড</span>
-              <input type="file" accept="audio/*" data-audio-upload="box2" class="hidden" />
+              <input type="file" accept="audio/*" data-audio-upload="box2" class="hidden">
             </label>
             <span data-audio-info="box2" class="text-xs text-slate-500 flex-1 truncate">কোনো ভয়েস যুক্ত নেই</span>
             <button type="button" data-audio-play="box2" class="hidden px-2 py-1 text-xs font-semibold rounded-md bg-sky-100 text-sky-700 hover:bg-sky-200 transition cursor-pointer">▶ শুনুন</button>
@@ -114,7 +157,7 @@
             <span class="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-emerald-100 text-emerald-700">স্লাইড ২</span>
             <h2 class="text-sm sm:text-base font-bold text-slate-800">দ্বিতীয় কার্ড (উত্তর, ব্যাখ্যা ও শেষ প্রশ্ন)</h2>
           </div>
-          <span id="page2DurationLabel" class="text-xs font-medium text-slate-400">~১৮ সেকেন্ড</span>
+          <span id="page2DurationLabel" class="text-xs font-medium text-slate-400">~8 সেকেন্ড</span>
         </div>
 
         <!-- Text Box 3 -->
@@ -122,14 +165,32 @@
           <label for="box3" class="block text-sm font-semibold text-slate-700 mb-1.5">
             ৩. তৃতীয় টেক্সট বক্স <span class="text-xs font-normal text-slate-500">(সঠিক উত্তর ও সংক্ষিপ্ত ব্যাখ্যা)</span>
           </label>
-          <textarea id="box3" rows="3" class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition" placeholder="সঠিক উত্তর ও ব্যাখ্যা লিখুন..."></textarea>
+          <div class="rounded-xl border border-slate-300 focus-within:ring-2 focus-within:ring-emerald-500 focus-within:border-emerald-500 transition overflow-hidden bg-white">
+            <div class="flex flex-wrap items-center gap-1 px-2.5 py-1.5 bg-slate-50 border-b border-slate-200" data-fmt-bar="box3">
+              <button type="button" data-fmt-cmd="bold" data-fmt-box="box3" class="px-2 py-1 text-xs font-bold rounded hover:bg-slate-200 text-slate-700 cursor-pointer transition" title="বোল্ড (Bold)">B</button>
+              <button type="button" data-fmt-cmd="italic" data-fmt-box="box3" class="px-2 py-1 text-xs italic font-semibold rounded hover:bg-slate-200 text-slate-700 cursor-pointer transition" title="ইটালিক (Italic)">I</button>
+              <button type="button" data-fmt-cmd="underline" data-fmt-box="box3" class="px-2 py-1 text-xs underline font-semibold rounded hover:bg-slate-200 text-slate-700 cursor-pointer transition" title="আন্ডারলাইন (Underline)">U</button>
+              <button type="button" data-fmt-cmd="normal" data-fmt-box="box3" class="px-2 py-1 text-xs font-medium rounded hover:bg-slate-200 text-slate-700 border border-slate-200 bg-white cursor-pointer transition" title="নরমাল (সব ফরম্যাট মুছুন)">নরমাল</button>
+              <span class="h-4 w-px bg-slate-300 mx-1"></span>
+              <span class="text-[11px] text-slate-500 mr-0.5">কালার:</span>
+              <button type="button" data-fmt-color="#0f172a" data-fmt-box="box3" class="w-4 h-4 rounded-full bg-slate-900 border border-slate-300 cursor-pointer hover:scale-110 transition" title="কালো"></button>
+              <button type="button" data-fmt-color="#dc2626" data-fmt-box="box3" class="w-4 h-4 rounded-full bg-red-600 border border-red-200 cursor-pointer hover:scale-110 transition" title="লাল"></button>
+              <button type="button" data-fmt-color="#0284c7" data-fmt-box="box3" class="w-4 h-4 rounded-full bg-sky-600 border border-sky-200 cursor-pointer hover:scale-110 transition" title="নীল"></button>
+              <button type="button" data-fmt-color="#059669" data-fmt-box="box3" class="w-4 h-4 rounded-full bg-emerald-600 border border-emerald-200 cursor-pointer hover:scale-110 transition" title="সবুজ"></button>
+              <button type="button" data-fmt-color="#7c3aed" data-fmt-box="box3" class="w-4 h-4 rounded-full bg-violet-600 border border-violet-200 cursor-pointer hover:scale-110 transition" title="বেগুনি"></button>
+              <label class="inline-flex items-center gap-1 ml-1 text-[11px] font-medium text-slate-600 cursor-pointer" title="কাস্টম কালার বাছুন">
+                <input type="color" value="#dc2626" data-fmt-picker="box3" class="w-5 h-5 p-0 border-0 bg-transparent cursor-pointer">
+              </label>
+            </div>
+            <div id="box3" contenteditable="true" data-placeholder="সঠিক উত্তর ও ব্যাখ্যা লিখুন..." class="rich-editor w-full px-3.5 py-2.5 text-sm sm:text-base focus:outline-none min-h-[88px]">সঠিক উত্তর গ, রুট ওভার ৪ বাই ৯। কারণ ৪-এর বর্গমূল ২ আর ৯-এর বর্গমূল ৩, অর্থাৎ ২/৩ আকারে লেখা যায়।</div>
+          </div>
           <div class="mt-2 flex flex-wrap items-center gap-2 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2">
             <button type="button" data-mic-box="box3" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-white border border-slate-300 text-slate-700 hover:bg-emerald-50 hover:border-emerald-300 hover:text-emerald-700 transition cursor-pointer">
               <span>🎙</span><span data-mic-label="box3">ভয়েস রেকর্ড</span>
             </button>
             <label class="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-white border border-slate-300 text-slate-700 hover:bg-emerald-50 hover:border-emerald-300 hover:text-emerald-700 transition cursor-pointer">
               <span>📁</span><span>অডিও আপলোড</span>
-              <input type="file" accept="audio/*" data-audio-upload="box3" class="hidden" />
+              <input type="file" accept="audio/*" data-audio-upload="box3" class="hidden">
             </label>
             <span data-audio-info="box3" class="text-xs text-slate-500 flex-1 truncate">কোনো ভয়েস যুক্ত নেই</span>
             <button type="button" data-audio-play="box3" class="hidden px-2 py-1 text-xs font-semibold rounded-md bg-sky-100 text-sky-700 hover:bg-sky-200 transition cursor-pointer">▶ শুনুন</button>
@@ -142,14 +203,32 @@
           <label for="box4" class="block text-sm font-semibold text-slate-700 mb-1.5">
             ৪. চতুর্থ টেক্সট বক্স <span class="text-xs font-normal text-slate-500">(দর্শকদের জন্য প্রশ্ন / কমেন্টে লিখুন)</span>
           </label>
-          <textarea id="box4" rows="3" class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition" placeholder="যেমন: এবার আপনি বলুন—০.৩৩৩... এটি মূলদ নাকি অমূলদ সংখ্যা? কমেন্টে লিখুন!"></textarea>
+          <div class="rounded-xl border border-slate-300 focus-within:ring-2 focus-within:ring-emerald-500 focus-within:border-emerald-500 transition overflow-hidden bg-white">
+            <div class="flex flex-wrap items-center gap-1 px-2.5 py-1.5 bg-slate-50 border-b border-slate-200" data-fmt-bar="box4">
+              <button type="button" data-fmt-cmd="bold" data-fmt-box="box4" class="px-2 py-1 text-xs font-bold rounded hover:bg-slate-200 text-slate-700 cursor-pointer transition" title="বোল্ড (Bold)">B</button>
+              <button type="button" data-fmt-cmd="italic" data-fmt-box="box4" class="px-2 py-1 text-xs italic font-semibold rounded hover:bg-slate-200 text-slate-700 cursor-pointer transition" title="ইটালিক (Italic)">I</button>
+              <button type="button" data-fmt-cmd="underline" data-fmt-box="box4" class="px-2 py-1 text-xs underline font-semibold rounded hover:bg-slate-200 text-slate-700 cursor-pointer transition" title="আন্ডারলাইন (Underline)">U</button>
+              <button type="button" data-fmt-cmd="normal" data-fmt-box="box4" class="px-2 py-1 text-xs font-medium rounded hover:bg-slate-200 text-slate-700 border border-slate-200 bg-white cursor-pointer transition" title="নরমাল (সব ফরম্যাট মুছুন)">নরমাল</button>
+              <span class="h-4 w-px bg-slate-300 mx-1"></span>
+              <span class="text-[11px] text-slate-500 mr-0.5">কালার:</span>
+              <button type="button" data-fmt-color="#0f172a" data-fmt-box="box4" class="w-4 h-4 rounded-full bg-slate-900 border border-slate-300 cursor-pointer hover:scale-110 transition" title="কালো"></button>
+              <button type="button" data-fmt-color="#dc2626" data-fmt-box="box4" class="w-4 h-4 rounded-full bg-red-600 border border-red-200 cursor-pointer hover:scale-110 transition" title="লাল"></button>
+              <button type="button" data-fmt-color="#0284c7" data-fmt-box="box4" class="w-4 h-4 rounded-full bg-sky-600 border border-sky-200 cursor-pointer hover:scale-110 transition" title="নীল"></button>
+              <button type="button" data-fmt-color="#059669" data-fmt-box="box4" class="w-4 h-4 rounded-full bg-emerald-600 border border-emerald-200 cursor-pointer hover:scale-110 transition" title="সবুজ"></button>
+              <button type="button" data-fmt-color="#7c3aed" data-fmt-box="box4" class="w-4 h-4 rounded-full bg-violet-600 border border-violet-200 cursor-pointer hover:scale-110 transition" title="বেগুনি"></button>
+              <label class="inline-flex items-center gap-1 ml-1 text-[11px] font-medium text-slate-600 cursor-pointer" title="কাস্টম কালার বাছুন">
+                <input type="color" value="#dc2626" data-fmt-picker="box4" class="w-5 h-5 p-0 border-0 bg-transparent cursor-pointer">
+              </label>
+            </div>
+            <div id="box4" contenteditable="true" data-placeholder="যেমন: এবার আপনি বলুন—০.৩৩৩... এটি মূলদ নাকি অমূলদ সংখ্যা? কমেন্টে লিখুন!" class="rich-editor w-full px-3.5 py-2.5 text-sm sm:text-base focus:outline-none min-h-[88px]">এবার আপনি বলুন—০.৩৩৩... এটি মূলদ নাকি অমূলদ সংখ্যা? কমেন্টে লিখুন!</div>
+          </div>
           <div class="mt-2 flex flex-wrap items-center gap-2 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2">
             <button type="button" data-mic-box="box4" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-white border border-slate-300 text-slate-700 hover:bg-emerald-50 hover:border-emerald-300 hover:text-emerald-700 transition cursor-pointer">
               <span>🎙</span><span data-mic-label="box4">ভয়েস রেকর্ড</span>
             </button>
             <label class="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-white border border-slate-300 text-slate-700 hover:bg-emerald-50 hover:border-emerald-300 hover:text-emerald-700 transition cursor-pointer">
               <span>📁</span><span>অডিও আপলোড</span>
-              <input type="file" accept="audio/*" data-audio-upload="box4" class="hidden" />
+              <input type="file" accept="audio/*" data-audio-upload="box4" class="hidden">
             </label>
             <span data-audio-info="box4" class="text-xs text-slate-500 flex-1 truncate">কোনো ভয়েস যুক্ত নেই</span>
             <button type="button" data-audio-play="box4" class="hidden px-2 py-1 text-xs font-semibold rounded-md bg-sky-100 text-sky-700 hover:bg-sky-200 transition cursor-pointer">▶ শুনুন</button>
@@ -168,7 +247,7 @@
               <label for="speedRange">টাইপিংয়ের গতি</label>
               <span id="speedLabel" class="text-sky-600">স্বাভাবিক (২২ অক্ষর/সে.)</span>
             </div>
-            <input id="speedRange" type="range" min="10" max="45" value="22" class="w-full accent-sky-600 cursor-pointer" />
+            <input id="speedRange" type="range" min="10" max="45" value="22" class="w-full accent-sky-600 cursor-pointer">
           </div>
 
           <div>
@@ -176,13 +255,13 @@
               <label for="fontSizeRange">ফন্টের আকার</label>
               <span id="fontSizeLabel" class="text-sky-600">৪৮ px</span>
             </div>
-            <input id="fontSizeRange" type="range" min="36" max="60" value="48" class="w-full accent-sky-600 cursor-pointer" />
+            <input id="fontSizeRange" type="range" min="36" max="60" value="48" class="w-full accent-sky-600 cursor-pointer">
           </div>
         </div>
 
         <div class="pt-1">
           <label for="footerTextInput" class="block text-xs font-semibold text-slate-700 mb-1">পেজের নিচের লেখা (ফুটার)</label>
-          <input id="footerTextInput" type="text" value="এমন আরো রিলস পেতে রিয়েক্ট, কমেন্ট ও ফলো করুন" class="w-full rounded-lg border border-slate-300 px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500" />
+          <input id="footerTextInput" type="text" value="এমন আরো রিলস পেতে রিয়েক্ট, কমেন্ট ও ফলো করুন" class="w-full rounded-lg border border-slate-300 px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500">
         </div>
 
         <div class="flex flex-wrap items-center justify-end gap-3 pt-1">
@@ -190,7 +269,7 @@
             <label for="logoUploadInput" class="px-3 py-1.5 text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg cursor-pointer transition">
               কাস্টম লোগো আপলোড
             </label>
-            <input id="logoUploadInput" type="file" accept="image/*" class="hidden" />
+            <input id="logoUploadInput" type="file" accept="image/*" class="hidden">
             <button id="resetLogoBtn" type="button" class="hidden px-2.5 py-1.5 text-xs font-medium text-rose-600 bg-rose-50 hover:bg-rose-100 rounded-lg cursor-pointer transition">
               ডিফল্ট লোগো
             </button>
@@ -206,7 +285,7 @@
           <span class="text-xs font-semibold text-slate-500 uppercase tracking-wide">লাইভ ভিডিও প্রিভিউ (৯:১৬)</span>
           <div class="flex items-center gap-2">
             <button id="muteToggleBtn" type="button" class="text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 px-2.5 py-1 rounded-md transition cursor-pointer" title="প্রিভিউ সাউন্ড চালু/বন্ধ">🔊 সাউন্ড</button>
-            <span id="timeDisplay" class="text-xs font-mono font-semibold text-slate-700 bg-slate-100 px-2.5 py-1 rounded-md">00:00 / 00:00</span>
+            <span id="timeDisplay" class="text-xs font-mono font-semibold text-slate-700 bg-slate-100 px-2.5 py-1 rounded-md">00:12 / 00:14</span>
           </div>
         </div>
 
@@ -230,7 +309,7 @@
 
         <!-- Scrubber -->
         <div class="w-full space-y-1">
-          <input id="timelineScrubber" type="range" min="0" max="1000" value="0" class="w-full accent-sky-600 cursor-pointer" />
+          <input id="timelineScrubber" type="range" min="0" max="1000" value="0" class="w-full accent-sky-600 cursor-pointer">
         </div>
 
         <!-- Playback & Download Buttons -->
@@ -246,7 +325,7 @@
 
           <button id="downloadBtn" type="button" class="w-full sm:w-auto flex-1 min-w-[160px] py-2.5 px-4 rounded-xl bg-sky-600 hover:bg-sky-700 text-white text-sm font-bold flex items-center justify-center gap-2 shadow-sm transition cursor-pointer">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
             </svg>
             <span>ভিডিও ডাউনলোড</span>
           </button>
@@ -429,47 +508,162 @@
       showToast._timer = setTimeout(() => statusToast.classList.add('hidden'), 5000);
     }
 
-    // Pre-wrap text into lines with grapheme counts so words never jump while typing
-    function layoutParagraphs(text, maxWidth, fontSize) {
-      ctx.font = `400 ${fontSize}px "Tiro Bangla", "Noto Sans Bengali", serif`;
-      const paragraphs = (text || '').split('\n');
+    // Extract styled grapheme tokens from a contenteditable box
+    function extractStyledTokens(rootEl) {
+      const tokens = [];
+      const defaultStyle = { bold: false, italic: false, underline: false, color: '#0f172a' };
+
+      function walk(node, style) {
+        if (node.nodeType === Node.TEXT_NODE) {
+          const text = node.nodeValue.replace(/\u00a0/g, ' ');
+          const gs = splitGraphemes(text);
+          for (const ch of gs) {
+            tokens.push({ ch, ...style });
+          }
+          return;
+        }
+        if (node.nodeType !== Node.ELEMENT_NODE) return;
+
+        const tag = node.tagName.toUpperCase();
+        if (tag === 'BR') {
+          tokens.push({ ch: '\n', ...defaultStyle });
+          return;
+        }
+
+        const nextStyle = { ...style };
+        if (tag === 'B' || tag === 'STRONG') nextStyle.bold = true;
+        if (tag === 'I' || tag === 'EM') nextStyle.italic = true;
+        if (tag === 'U') nextStyle.underline = true;
+        if (tag === 'FONT' && node.getAttribute('color')) {
+          nextStyle.color = node.getAttribute('color');
+        }
+        if (node.style) {
+          const fw = node.style.fontWeight;
+          if (fw === 'bold' || Number(fw) >= 600) nextStyle.bold = true;
+          if (fw === 'normal' || fw === '400') nextStyle.bold = false;
+          if (node.style.fontStyle === 'italic') nextStyle.italic = true;
+          if (node.style.fontStyle === 'normal') nextStyle.italic = false;
+          if (node.style.textDecoration && node.style.textDecoration.includes('underline')) {
+            nextStyle.underline = true;
+          }
+          if (node.style.color) {
+            nextStyle.color = node.style.color;
+          }
+        }
+
+        const isBlock = (tag === 'DIV' || tag === 'P') && node !== rootEl;
+        if (isBlock && tokens.length > 0 && tokens[tokens.length - 1].ch !== '\n') {
+          tokens.push({ ch: '\n', ...defaultStyle });
+        }
+        for (const child of node.childNodes) {
+          walk(child, nextStyle);
+        }
+        if (isBlock && tokens.length > 0 && tokens[tokens.length - 1].ch !== '\n') {
+          tokens.push({ ch: '\n', ...defaultStyle });
+        }
+      }
+
+      walk(rootEl, defaultStyle);
+
+      // Trim leading/trailing newlines
+      while (tokens.length > 0 && tokens[0].ch === '\n') tokens.shift();
+      while (tokens.length > 0 && tokens[tokens.length - 1].ch === '\n') tokens.pop();
+      return tokens;
+    }
+
+    function getCanvasFont(fontSize, bold, italic) {
+      const weight = bold ? '700' : '400';
+      const style = italic ? 'italic ' : '';
+      return `${style}${weight} ${fontSize}px "Tiro Bangla", "Noto Sans Bengali", serif`;
+    }
+
+    function measureTokenRun(runTokens, fontSize) {
+      if (!runTokens.length) return 0;
+      let totalW = 0;
+      let i = 0;
+      while (i < runTokens.length) {
+        const ref = runTokens[i];
+        let str = ref.ch;
+        i++;
+        while (i < runTokens.length &&
+               runTokens[i].bold === ref.bold &&
+               runTokens[i].italic === ref.italic) {
+          str += runTokens[i].ch;
+          i++;
+        }
+        ctx.font = getCanvasFont(fontSize, ref.bold, ref.italic);
+        totalW += ctx.measureText(str).width;
+      }
+      return totalW;
+    }
+
+    // Pre-wrap styled tokens into lines so words never jump while typing
+    function layoutParagraphs(rootEl, maxWidth, fontSize) {
+      const allTokens = extractStyledTokens(rootEl);
+      if (allTokens.length === 0) {
+        return { lines: [], totalGraphemes: 0 };
+      }
+
+      // Split into paragraphs by '\n'
+      const paragraphs = [[]];
+      for (const tok of allTokens) {
+        if (tok.ch === '\n') {
+          paragraphs.push([]);
+        } else {
+          paragraphs[paragraphs.length - 1].push(tok);
+        }
+      }
+
       const lines = [];
       let totalGraphemes = 0;
 
-      for (let pIdx = 0; pIdx < paragraphs.length; pIdx++) {
-        const para = paragraphs[pIdx];
-        if (!para.trim()) {
-          lines.push({ text: '', graphemes: [], startIndex: totalGraphemes, endIndex: totalGraphemes });
+      for (const paraTokens of paragraphs) {
+        if (paraTokens.length === 0) {
+          lines.push({ tokens: [], startIndex: totalGraphemes, endIndex: totalGraphemes });
           continue;
         }
-        const words = para.split(/(\s+)/);
-        let currentLine = '';
 
-        for (let w of words) {
-          const testLine = currentLine + w;
-          if (ctx.measureText(testLine).width > maxWidth && currentLine.trim() !== '') {
-            const g = splitGraphemes(currentLine);
-            lines.push({
-              text: currentLine,
-              graphemes: g,
-              startIndex: totalGraphemes,
-              endIndex: totalGraphemes + g.length
-            });
-            totalGraphemes += g.length;
-            currentLine = w.replace(/^\s+/, '');
+        // Split paragraph tokens into word/space chunks
+        const chunks = [];
+        let curChunk = [];
+        let curIsSpace = null;
+        for (const tok of paraTokens) {
+          const isSpace = /^\s+$/.test(tok.ch);
+          if (curIsSpace === null || curIsSpace === isSpace) {
+            curChunk.push(tok);
+            curIsSpace = isSpace;
           } else {
-            currentLine = testLine;
+            chunks.push({ tokens: curChunk, isSpace: curIsSpace });
+            curChunk = [tok];
+            curIsSpace = isSpace;
           }
         }
-        if (currentLine.length > 0) {
-          const g = splitGraphemes(currentLine);
+        if (curChunk.length > 0) {
+          chunks.push({ tokens: curChunk, isSpace: curIsSpace });
+        }
+
+        let currentLineTokens = [];
+        for (const chunk of chunks) {
+          const testTokens = currentLineTokens.concat(chunk.tokens);
+          if (measureTokenRun(testTokens, fontSize) > maxWidth && currentLineTokens.some(t => !/^\s+$/.test(t.ch))) {
+            lines.push({
+              tokens: currentLineTokens,
+              startIndex: totalGraphemes,
+              endIndex: totalGraphemes + currentLineTokens.length
+            });
+            totalGraphemes += currentLineTokens.length;
+            currentLineTokens = chunk.isSpace ? [] : chunk.tokens.slice();
+          } else {
+            currentLineTokens = testTokens;
+          }
+        }
+        if (currentLineTokens.length > 0) {
           lines.push({
-            text: currentLine,
-            graphemes: g,
+            tokens: currentLineTokens,
             startIndex: totalGraphemes,
-            endIndex: totalGraphemes + g.length
+            endIndex: totalGraphemes + currentLineTokens.length
           });
-          totalGraphemes += g.length;
+          totalGraphemes += currentLineTokens.length;
         }
       }
       return { lines, totalGraphemes };
@@ -478,19 +672,14 @@
     let timeline = null;
 
     function rebuildTimeline() {
-      const cps = Number(speedRange.value); // graphemes per second
+      const cps = Number(speedRange.value);
       const fontSize = Number(fontSizeRange.value);
-      const cardMaxWidth = 900 - 128; // card width 900 minus 64px padding each side
+      const cardMaxWidth = 900 - 128;
 
-      const t1 = box1El.value.trim();
-      const t2 = box2El.value.trim();
-      const t3 = box3El.value.trim();
-      const t4 = box4El.value.trim();
-
-      const l1 = layoutParagraphs(t1, cardMaxWidth, fontSize);
-      const l2 = layoutParagraphs(t2, cardMaxWidth, fontSize);
-      const l3 = layoutParagraphs(t3, cardMaxWidth, fontSize);
-      const l4 = layoutParagraphs(t4, cardMaxWidth, fontSize);
+      const l1 = layoutParagraphs(box1El, cardMaxWidth, fontSize);
+      const l2 = layoutParagraphs(box2El, cardMaxWidth, fontSize);
+      const l3 = layoutParagraphs(box3El, cardMaxWidth, fontSize);
+      const l4 = layoutParagraphs(box4El, cardMaxWidth, fontSize);
 
       const hasPage1 = l1.totalGraphemes > 0 || l2.totalGraphemes > 0;
       const hasPage2 = l3.totalGraphemes > 0 || l4.totalGraphemes > 0;
@@ -503,14 +692,14 @@
       const dur1 = a1 > 0 ? a1 : (l1.totalGraphemes > 0 ? l1.totalGraphemes / cps : 0);
       const pause12 = (l1.totalGraphemes > 0 && l2.totalGraphemes > 0) ? 0.55 : 0;
       const dur2 = a2 > 0 ? a2 : (l2.totalGraphemes > 0 ? l2.totalGraphemes / cps : 0);
-      const holdPage1 = (hasPage1 && hasPage2) ? 1.5 : (hasPage1 ? 2.2 : 0);
+      const holdPage1 = (hasPage1 && hasPage2) ? 2.0 : (hasPage1 ? 2.2 : 0);
 
       const dur3 = a3 > 0 ? a3 : (l3.totalGraphemes > 0 ? l3.totalGraphemes / cps : 0);
       const pause34 = (l3.totalGraphemes > 0 && l4.totalGraphemes > 0) ? 0.55 : 0;
       const dur4 = a4 > 0 ? a4 : (l4.totalGraphemes > 0 ? l4.totalGraphemes / cps : 0);
       const holdPage2 = hasPage2 ? 2.2 : 0;
 
-      let cursor = 0.25; // slight initial breath
+      let cursor = 0.25;
       const p1Start = cursor;
       const b1Start = cursor; cursor += dur1;
       const b1End = cursor;
@@ -606,17 +795,42 @@
     }
 
     function drawTypedBlock(layout, revealedCount, startX, startY, lineHeight, fontSize) {
-      ctx.font = `400 ${fontSize}px "Tiro Bangla", "Noto Sans Bengali", serif`;
-      ctx.fillStyle = '#0f172a';
       ctx.textAlign = 'left';
       ctx.textBaseline = 'top';
 
       let y = startY;
       for (const line of layout.lines) {
-        if (revealedCount > line.startIndex) {
-          const countInLine = Math.min(line.graphemes.length, revealedCount - line.startIndex);
-          const visibleStr = line.graphemes.slice(0, countInLine).join('');
-          ctx.fillText(visibleStr, startX, y);
+        if (revealedCount > line.startIndex && line.tokens.length > 0) {
+          const countInLine = Math.min(line.tokens.length, revealedCount - line.startIndex);
+          const visibleTokens = line.tokens.slice(0, countInLine);
+
+          let curX = startX;
+          let i = 0;
+          while (i < visibleTokens.length) {
+            const ref = visibleTokens[i];
+            let str = ref.ch;
+            i++;
+            while (
+              i < visibleTokens.length &&
+              visibleTokens[i].bold === ref.bold &&
+              visibleTokens[i].italic === ref.italic &&
+              visibleTokens[i].underline === ref.underline &&
+              visibleTokens[i].color === ref.color
+            ) {
+              str += visibleTokens[i].ch;
+              i++;
+            }
+
+            ctx.font = getCanvasFont(fontSize, ref.bold, ref.italic);
+            ctx.fillStyle = ref.color || '#0f172a';
+            ctx.fillText(str, curX, y);
+
+            const runW = ctx.measureText(str).width;
+            if (ref.underline) {
+              ctx.fillRect(curX, y + fontSize * 1.06, runW, Math.max(2, fontSize * 0.06));
+            }
+            curX += runW;
+          }
         }
         y += lineHeight;
       }
@@ -878,21 +1092,94 @@
       renderFrame(currentTime);
     });
 
+    function setBoxPlainText(el, text) {
+      el.innerText = text;
+    }
+
+    // Track saved text selection per box so color picker works seamlessly
+    const savedRanges = {};
+    [box1El, box2El, box3El, box4El].forEach(el => {
+      const saveSel = () => {
+        const sel = window.getSelection();
+        if (sel && sel.rangeCount > 0) {
+          const r = sel.getRangeAt(0);
+          if (el.contains(r.commonAncestorContainer)) {
+            savedRanges[el.id] = r.cloneRange();
+          }
+        }
+      };
+      el.addEventListener('keyup', saveSel);
+      el.addEventListener('mouseup', saveSel);
+      el.addEventListener('touchend', saveSel);
+      el.addEventListener('paste', (e) => {
+        e.preventDefault();
+        const text = (e.clipboardData || window.clipboardData).getData('text/plain');
+        document.execCommand('insertText', false, text);
+      });
+    });
+
+    function restoreSelection(boxId) {
+      const el = document.getElementById(boxId);
+      el.focus();
+      const range = savedRanges[boxId];
+      if (range) {
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+      }
+    }
+
+    document.querySelectorAll('[data-fmt-cmd]').forEach(btn => {
+      btn.addEventListener('mousedown', (e) => e.preventDefault());
+      btn.addEventListener('click', () => {
+        const boxId = btn.getAttribute('data-fmt-box');
+        const cmd = btn.getAttribute('data-fmt-cmd');
+        restoreSelection(boxId);
+        if (cmd === 'normal') {
+          document.execCommand('removeFormat', false, null);
+          document.execCommand('foreColor', false, '#0f172a');
+        } else {
+          document.execCommand(cmd, false, null);
+        }
+        rebuildTimeline();
+      });
+    });
+
+    document.querySelectorAll('[data-fmt-color]').forEach(btn => {
+      btn.addEventListener('mousedown', (e) => e.preventDefault());
+      btn.addEventListener('click', () => {
+        const boxId = btn.getAttribute('data-fmt-box');
+        const color = btn.getAttribute('data-fmt-color');
+        restoreSelection(boxId);
+        document.execCommand('foreColor', false, color);
+        rebuildTimeline();
+      });
+    });
+
+    document.querySelectorAll('[data-fmt-picker]').forEach(picker => {
+      picker.addEventListener('input', () => {
+        const boxId = picker.getAttribute('data-fmt-picker');
+        restoreSelection(boxId);
+        document.execCommand('foreColor', false, picker.value);
+        rebuildTimeline();
+      });
+    });
+
     resetSampleBtn.addEventListener('click', () => {
-      box1El.value = SAMPLE_DATA.box1;
-      box2El.value = SAMPLE_DATA.box2;
-      box3El.value = SAMPLE_DATA.box3;
-      box4El.value = SAMPLE_DATA.box4;
+      setBoxPlainText(box1El, SAMPLE_DATA.box1);
+      setBoxPlainText(box2El, SAMPLE_DATA.box2);
+      setBoxPlainText(box3El, SAMPLE_DATA.box3);
+      setBoxPlainText(box4El, SAMPLE_DATA.box4);
       currentTime = 0;
       rebuildTimeline();
       setPlaying(true);
     });
 
     clearAllBtn.addEventListener('click', () => {
-      box1El.value = '';
-      box2El.value = '';
-      box3El.value = '';
-      box4El.value = '';
+      box1El.innerHTML = '';
+      box2El.innerHTML = '';
+      box3El.innerHTML = '';
+      box4El.innerHTML = '';
       currentTime = 0;
       rebuildTimeline();
     });
@@ -1071,10 +1358,10 @@
     });
 
     // Init with sample data
-    box1El.value = SAMPLE_DATA.box1;
-    box2El.value = SAMPLE_DATA.box2;
-    box3El.value = SAMPLE_DATA.box3;
-    box4El.value = SAMPLE_DATA.box4;
+    setBoxPlainText(box1El, SAMPLE_DATA.box1);
+    setBoxPlainText(box2El, SAMPLE_DATA.box2);
+    setBoxPlainText(box3El, SAMPLE_DATA.box3);
+    setBoxPlainText(box4El, SAMPLE_DATA.box4);
 
     defaultLogoImg.addEventListener('load', () => {
       renderFrame(currentTime);
@@ -1092,5 +1379,5 @@
       }
     });
   </script>
-</body>
-</html>
+
+</body></html>
