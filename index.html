@@ -360,6 +360,24 @@
           </div>
         </div>
 
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1 items-center">
+          <div>
+            <div class="flex justify-between text-xs font-semibold text-slate-700 mb-1">
+              <label for="footerFontSizeRange">ফুটার ফন্ট সাইজ</label>
+              <span id="footerFontSizeLabel" class="text-sky-600">40 px</span>
+            </div>
+            <input id="footerFontSizeRange" type="range" min="28" max="56" value="40" class="w-full accent-sky-600 cursor-pointer" />
+          </div>
+          <label class="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-700 cursor-pointer min-h-[36px]">
+            <input id="footerBoldToggle" type="checkbox" checked class="w-4 h-4 rounded accent-sky-600 cursor-pointer" />
+            <span>ফুটার লেখা বোল্ড করুন</span>
+          </label>
+          <label class="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-700 cursor-pointer min-h-[36px]">
+            <input id="watermarkToggle" type="checkbox" checked class="w-4 h-4 rounded accent-sky-600 cursor-pointer" />
+            <span>বই ও গাণিতিক ওয়াটারমার্ক</span>
+          </label>
+        </div>
+
         <div class="flex flex-wrap items-center justify-end gap-3 pt-1">
           <div class="flex items-center gap-2">
             <label for="logoUploadInput" class="px-3 py-1.5 text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg cursor-pointer transition">
@@ -492,6 +510,10 @@
     };
     let masterAudio = null;
     const resolutionSelect = document.getElementById('resolutionSelect');
+    const footerFontSizeRange = document.getElementById('footerFontSizeRange');
+    const footerFontSizeLabel = document.getElementById('footerFontSizeLabel');
+    const footerBoldToggle = document.getElementById('footerBoldToggle');
+    const watermarkToggle = document.getElementById('watermarkToggle');
     const masterMicBtn = document.getElementById('masterMicBtn');
     const masterMicLabel = document.getElementById('masterMicLabel');
     const masterAudioUpload = document.getElementById('masterAudioUpload');
@@ -844,9 +866,9 @@
       const hasPage2 = l3.totalGraphemes > 0 || l4.totalGraphemes > 0;
 
       let dur1 = 0, dur2 = 0, dur3 = 0, dur4 = 0;
-      let pause12 = (l1.totalGraphemes > 0 && l2.totalGraphemes > 0) ? 0.55 : 0;
+      let pause12 = (l1.totalGraphemes > 0 && l2.totalGraphemes > 0) ? 2.0 : 0;
       let holdPage1 = (hasPage1 && hasPage2) ? 2.0 : (hasPage1 ? 2.2 : 0);
-      let pause34 = (l3.totalGraphemes > 0 && l4.totalGraphemes > 0) ? 0.55 : 0;
+      let pause34 = (l3.totalGraphemes > 0 && l4.totalGraphemes > 0) ? 2.0 : 0;
       let holdPage2 = hasPage2 ? 2.2 : 0;
       let cursor = 0.25;
 
@@ -858,8 +880,8 @@
         const totalG = g1 + g2 + g3 + g4;
         const mDur = masterAudio.buffer.duration;
         cursor = 0.05;
-        pause12 = (l1.totalGraphemes > 0 && l2.totalGraphemes > 0) ? 0.45 : 0;
-        pause34 = (l3.totalGraphemes > 0 && l4.totalGraphemes > 0) ? 0.45 : 0;
+        pause12 = (l1.totalGraphemes > 0 && l2.totalGraphemes > 0) ? 2.0 : 0;
+        pause34 = (l3.totalGraphemes > 0 && l4.totalGraphemes > 0) ? 2.0 : 0;
         holdPage1 = (hasPage1 && hasPage2) ? 2.0 : 0;
         const fixedPauses = pause12 + pause34 + holdPage1 + cursor;
         if (mDur < fixedPauses + 1.0 && fixedPauses > 0) {
@@ -885,10 +907,11 @@
         const a3 = boxAudio.box3 ? boxAudio.box3.buffer.duration : 0;
         const a4 = boxAudio.box4 ? boxAudio.box4.buffer.duration : 0;
 
-        dur1 = !cfg1.anim ? 0 : (a1 > 0 ? a1 : (l1.totalGraphemes > 0 ? l1.totalGraphemes / cfg1.speed : 0));
-        dur2 = !cfg2.anim ? 0 : (a2 > 0 ? a2 : (l2.totalGraphemes > 0 ? l2.totalGraphemes / cfg2.speed : 0));
-        dur3 = !cfg3.anim ? 0 : (a3 > 0 ? a3 : (l3.totalGraphemes > 0 ? l3.totalGraphemes / cfg3.speed : 0));
-        dur4 = !cfg4.anim ? 0 : (a4 > 0 ? a4 : (l4.totalGraphemes > 0 ? l4.totalGraphemes / cfg4.speed : 0));
+        // Even when typing animation is OFF, wait for the box's full voice duration before moving to the next box!
+        dur1 = a1 > 0 ? a1 : (!cfg1.anim ? 0 : (l1.totalGraphemes > 0 ? l1.totalGraphemes / cfg1.speed : 0));
+        dur2 = a2 > 0 ? a2 : (!cfg2.anim ? 0 : (l2.totalGraphemes > 0 ? l2.totalGraphemes / cfg2.speed : 0));
+        dur3 = a3 > 0 ? a3 : (!cfg3.anim ? 0 : (l3.totalGraphemes > 0 ? l3.totalGraphemes / cfg3.speed : 0));
+        dur4 = a4 > 0 ? a4 : (!cfg4.anim ? 0 : (l4.totalGraphemes > 0 ? l4.totalGraphemes / cfg4.speed : 0));
       }
       const p1Start = cursor;
       const b1Start = cursor; cursor += dur1;
@@ -1027,11 +1050,80 @@
       return y;
     }
 
+    function drawMinimalistBookWatermark(c, x, y, size, angle) {
+      c.save();
+      c.translate(x, y);
+      c.rotate(angle);
+      c.strokeStyle = 'rgba(2, 132, 199, 0.075)';
+      c.lineWidth = 3.5;
+      c.lineCap = 'round';
+      c.lineJoin = 'round';
+      const w = size;
+      const h = size * 0.72;
+      c.beginPath();
+      c.moveTo(0, -h * 0.25);
+      c.quadraticCurveTo(-w * 0.35, -h * 0.45, -w * 0.5, -h * 0.28);
+      c.lineTo(-w * 0.5, h * 0.35);
+      c.quadraticCurveTo(-w * 0.35, h * 0.2, 0, h * 0.38);
+      c.quadraticCurveTo(w * 0.35, h * 0.2, w * 0.5, h * 0.35);
+      c.lineTo(w * 0.5, -h * 0.28);
+      c.quadraticCurveTo(w * 0.35, -h * 0.45, 0, -h * 0.25);
+      c.moveTo(0, -h * 0.25);
+      c.lineTo(0, h * 0.38);
+      c.stroke();
+      c.restore();
+    }
+
     function rebuildBgCache() {
       bgCacheCtx.save();
       bgCacheCtx.setTransform(canvasScale, 0, 0, canvasScale, 0, 0);
-      bgCacheCtx.fillStyle = '#ffffff';
+
+      // Soft minimalist gradient background
+      if (watermarkToggle.checked) {
+        const bgGrad = bgCacheCtx.createLinearGradient(0, 0, W, H);
+        bgGrad.addColorStop(0, '#f8fafc');
+        bgGrad.addColorStop(0.5, '#ffffff');
+        bgGrad.addColorStop(1, '#f0f9ff');
+        bgCacheCtx.fillStyle = bgGrad;
+      } else {
+        bgCacheCtx.fillStyle = '#ffffff';
+      }
       bgCacheCtx.fillRect(0, 0, W, H);
+
+      // Minimalist outer corner geometric shapes & soft orbs
+      if (watermarkToggle.checked) {
+        bgCacheCtx.save();
+        bgCacheCtx.fillStyle = 'rgba(14, 165, 233, 0.05)';
+        bgCacheCtx.beginPath();
+        bgCacheCtx.arc(70, 80, 180, 0, Math.PI * 2);
+        bgCacheCtx.fill();
+
+        bgCacheCtx.fillStyle = 'rgba(99, 102, 241, 0.045)';
+        bgCacheCtx.beginPath();
+        bgCacheCtx.arc(W - 60, H - 70, 210, 0, Math.PI * 2);
+        bgCacheCtx.fill();
+
+        // Subtle outer border frame
+        bgCacheCtx.strokeStyle = 'rgba(148, 163, 184, 0.22)';
+        bgCacheCtx.lineWidth = 2;
+        bgCacheCtx.strokeRect(28, 28, W - 56, H - 56);
+
+        // Minimalist corner accents
+        bgCacheCtx.strokeStyle = 'rgba(2, 132, 199, 0.28)';
+        bgCacheCtx.lineWidth = 5;
+        bgCacheCtx.lineCap = 'round';
+        // Top-left L
+        bgCacheCtx.beginPath();
+        bgCacheCtx.moveTo(28, 88); bgCacheCtx.lineTo(28, 28); bgCacheCtx.lineTo(88, 28);
+        // Top-right L
+        bgCacheCtx.moveTo(W - 88, 28); bgCacheCtx.lineTo(W - 28, 28); bgCacheCtx.lineTo(W - 28, 88);
+        // Bottom-left L
+        bgCacheCtx.moveTo(28, H - 88); bgCacheCtx.lineTo(28, H - 28); bgCacheCtx.lineTo(88, H - 28);
+        // Bottom-right L
+        bgCacheCtx.moveTo(W - 88, H - 28); bgCacheCtx.lineTo(W - 28, H - 28); bgCacheCtx.lineTo(W - 28, H - 88);
+        bgCacheCtx.stroke();
+        bgCacheCtx.restore();
+      }
 
       // Draw Header Logo onto bgCacheCtx
       const logoToDraw = customLogoImg || (defaultLogoImg.complete && defaultLogoImg.naturalWidth > 0 ? defaultLogoImg : null);
@@ -1041,17 +1133,20 @@
         const scale = Math.min(maxLogoW / logoToDraw.width, maxLogoH / logoToDraw.height);
         const dw = logoToDraw.width * scale;
         const dh = logoToDraw.height * scale;
+        bgCacheCtx.save();
+        bgCacheCtx.globalCompositeOperation = 'multiply';
         bgCacheCtx.drawImage(logoToDraw, (W - dw) / 2, -10 + (maxLogoH - dh) / 2, dw, dh);
+        bgCacheCtx.restore();
       }
 
-      // Main Card (shadow rendered ONCE on static cache, not every frame!)
+      // Main Card
       const cardX = 90;
       const cardY = 408;
       const cardW = 900;
-      const cardH = 1350;
+      const cardH = 1340;
 
       bgCacheCtx.save();
-      bgCacheCtx.shadowColor = 'rgba(15, 23, 42, 0.05)';
+      bgCacheCtx.shadowColor = 'rgba(15, 23, 42, 0.06)';
       bgCacheCtx.shadowBlur = 24;
       bgCacheCtx.shadowOffsetY = 8;
       bgCacheCtx.fillStyle = '#ffffff';
@@ -1069,7 +1164,8 @@
       bgCacheCtx.fill();
       bgCacheCtx.restore();
 
-      bgCacheCtx.strokeStyle = '#cbd5e1';
+      // Card border
+      bgCacheCtx.strokeStyle = watermarkToggle.checked ? '#bae6fd' : '#cbd5e1';
       bgCacheCtx.lineWidth = 3;
       bgCacheCtx.beginPath();
       bgCacheCtx.moveTo(cardX + 36, cardY);
@@ -1084,14 +1180,55 @@
       bgCacheCtx.closePath();
       bgCacheCtx.stroke();
 
-      // Draw Footer onto bgCacheCtx
+      // Top accent pill on card + subtle math & book watermarks inside card
+      if (watermarkToggle.checked) {
+        const pillGrad = bgCacheCtx.createLinearGradient(cardX + 260, cardY, cardX + cardW - 260, cardY);
+        pillGrad.addColorStop(0, '#0284c7');
+        pillGrad.addColorStop(1, '#4f46e5');
+        bgCacheCtx.fillStyle = pillGrad;
+        bgCacheCtx.beginPath();
+        bgCacheCtx.roundRect(W / 2 - 110, cardY - 4, 220, 8, 4);
+        bgCacheCtx.fill();
+
+        // Subtle book watermarks
+        drawMinimalistBookWatermark(bgCacheCtx, cardX + 760, cardY + 180, 120, -0.22);
+        drawMinimalistBookWatermark(bgCacheCtx, cardX + 145, cardY + 1180, 130, 0.18);
+
+        // Subtle mathematical symbol watermarks
+        const symbols = [
+          { ch: 'π', x: cardX + 120, y: cardY + 210, size: 78, rot: -0.2 },
+          { ch: '∑', x: cardX + 785, y: cardY + 520, size: 84, rot: 0.15 },
+          { ch: '√', x: cardX + 140, y: cardY + 740, size: 82, rot: -0.15 },
+          { ch: '∞', x: cardX + 750, y: cardY + 910, size: 88, rot: 0.2 },
+          { ch: '∆', x: cardX + 460, y: cardY + 670, size: 96, rot: -0.1 },
+          { ch: 'θ', x: cardX + 760, y: cardY + 1210, size: 78, rot: 0.12 },
+          { ch: '%', x: cardX + 480, y: cardY + 1090, size: 72, rot: -0.18 }
+        ];
+        bgCacheCtx.save();
+        bgCacheCtx.fillStyle = 'rgba(2, 132, 199, 0.055)';
+        bgCacheCtx.textAlign = 'center';
+        bgCacheCtx.textBaseline = 'middle';
+        for (const sym of symbols) {
+          bgCacheCtx.save();
+          bgCacheCtx.translate(sym.x, sym.y);
+          bgCacheCtx.rotate(sym.rot);
+          bgCacheCtx.font = `700 ${sym.size}px "Inter", serif`;
+          bgCacheCtx.fillText(sym.ch, 0, 0);
+          bgCacheCtx.restore();
+        }
+        bgCacheCtx.restore();
+      }
+
+      // Draw Footer onto bgCacheCtx (with user size & bold option)
       const footerText = footerTextInput.value.trim();
       if (footerText) {
+        const fSize = Number(footerFontSizeRange.value) || 40;
+        const fWeight = footerBoldToggle.checked ? '700' : '400';
         bgCacheCtx.fillStyle = '#0f172a';
         bgCacheCtx.textAlign = 'center';
         bgCacheCtx.textBaseline = 'middle';
-        bgCacheCtx.font = '400 34px "Tiro Bangla", "Noto Sans Bengali", serif';
-        bgCacheCtx.fillText(footerText, W / 2, 1835);
+        bgCacheCtx.font = `${fWeight} ${fSize}px "Tiro Bangla", "Noto Sans Bengali", serif`;
+        bgCacheCtx.fillText(footerText, W / 2, 1830);
       }
 
       bgCacheCtx.restore();
@@ -1214,12 +1351,13 @@
       }
 
       const mimeCandidates = [
-        'video/webm;codecs=vp8,opus',
-        'video/webm;codecs=vp9,opus',
-        'video/webm;codecs=vp8',
-        'video/webm',
         'video/mp4;codecs=avc1.42E01E,mp4a.40.2',
-        'video/mp4'
+        'video/mp4;codecs=avc1.4D401E,mp4a.40.2',
+        'video/mp4;codecs=avc1',
+        'video/mp4',
+        'video/webm;codecs=vp9,opus',
+        'video/webm;codecs=vp8,opus',
+        'video/webm'
       ];
       let chosenMime = '';
       for (const m of mimeCandidates) {
@@ -1355,6 +1493,22 @@
 
     resolutionSelect.addEventListener('change', () => {
       applyResolution();
+      renderFrame(currentTime);
+    });
+
+    footerFontSizeRange.addEventListener('input', () => {
+      footerFontSizeLabel.textContent = `${footerFontSizeRange.value} px`;
+      bgCacheDirty = true;
+      renderFrame(currentTime);
+    });
+
+    footerBoldToggle.addEventListener('change', () => {
+      bgCacheDirty = true;
+      renderFrame(currentTime);
+    });
+
+    watermarkToggle.addEventListener('change', () => {
+      bgCacheDirty = true;
       renderFrame(currentTime);
     });
 
